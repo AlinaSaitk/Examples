@@ -5,6 +5,17 @@
 // 89126 -> 5
 
 Console.Clear();
-string a = Console.ReadLine();
-int len = a.Length;
-Console.WriteLine($"{a} -> {len}");
+int a = Convert.ToInt32(Console.ReadLine());
+int count = 1;
+while (a >= 10)
+{
+    count++;
+    a = a / 10;
+}
+Console.WriteLine($"{a} -> {count}");
+
+
+// Console.Clear();
+// string a = Console.ReadLine();
+// int len = a.Length;
+// Console.WriteLine($"{a} -> {len}");
