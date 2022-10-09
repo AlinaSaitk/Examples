@@ -5,15 +5,42 @@
 
 Console.Write("Введите число: ");
 int dec = Convert.ToInt32(Console.ReadLine());
-
-string binary = string.Empty;
-
-while (dec != 0)
+int temp = dec;
+int count = 0;
+while (temp != 0)
 {
-    binary = Convert.ToString(dec % 2) + binary;
+    temp = temp/2;
+    count++;
+}
+
+int[] biArr = new int[count];
+for (int i = count - 1; i >= 0; i--)
+{
+    biArr[i] = dec % 2;
     dec = dec / 2;
 }
-Console.WriteLine(binary);
+
+
+for (int i = 0; i < biArr.Length; i++)
+{
+    Console.Write($"{biArr[i]}");
+}
+
+
+
+
+// Console.Write("Введите число: ");
+// int dec = Convert.ToInt32(Console.ReadLine());
+
+// string binary = string.Empty;
+
+// while (dec != 0)
+// {
+//     binary = Convert.ToString(dec % 2) + binary;
+//     dec = dec / 2;
+// }
+// Console.WriteLine(binary);
+
 
 
 // int[] DecToBin(int num)
