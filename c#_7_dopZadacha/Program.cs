@@ -2,30 +2,36 @@
 // x^5 + y^5 + z^5 + q^5 = w^5
 
 
-int n = 2;
 
-while (n < 100)
+void XyzqwPow5(int from, int to)
 {
-    Console.WriteLine(n);
-    for (int x = 1; x < n; x++)
+    int n = from;
+    while (n <= to )
     {
-        for (int y = 1; y < n; y++)
+        Console.WriteLine(n);
+        for (int x = 1; x <= n; x++)
         {
-            for (int z = 1; z < n; z++)
+            for (int y = 1; y <= n; y++)
             {
-                for (int q = 1; q < n; q++)
+                for (int z = 1; z <= n; z++)
                 {
-                    for (int w = 1; w < n; w++)
+                    for (int q = 1; q <= n; q++)
                     {
-                        if (Math.Pow(x, 5) + Math.Pow(y, 5) + Math.Pow(z, 5) + Math.Pow(q, 5) == Math.Pow(w, 5))
+                        for (int w = n; w <= n; w++)
                         {
-                            Console.WriteLine($"x = {x}, y = {y}, z = {z}, q = {q}, w = {w}");
-                            break;
+                            if (Math.Pow(x, 5) + Math.Pow(y, 5) + Math.Pow(z, 5) + Math.Pow(q, 5) == Math.Pow(w, 5))
+                            {
+                                Console.WriteLine($"x = {x}, y = {y}, z = {z}, q = {q}, w = {w}");
+                                break;
+                            }
                         }
                     }
                 }
             }
         }
+        n++;
     }
-    n++;
 }
+
+
+XyzqwPow5(1, 200);
