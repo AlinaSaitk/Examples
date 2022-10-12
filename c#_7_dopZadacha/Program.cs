@@ -9,22 +9,21 @@ void XyzqwPow5(int from, int to)
     while (n <= to )
     {
         Console.WriteLine(n);
-        for (int x = 1; x <= n; x++)
+        for (int x = 1; x < n; x++)
         {
-            for (int y = 1; y <= n; y++)
+            for (int y = 1; y < n; y++)
             {
-                for (int z = 1; z <= n; z++)
+                for (int z = Convert.ToInt32(n/3.9); z < n; z++)
                 {
-                    for (int q = 1; q <= n; q++)
+                    for (int q = Convert.ToInt32(n/1.32); q < n; q++)
                     {
-                        for (int w = n; w <= n; w++)
+                        int w = n;
+                        if (Math.Pow(x, 5) + Math.Pow(y, 5) + Math.Pow(z, 5) + Math.Pow(q, 5) == Math.Pow(w, 5))
                         {
-                            if (Math.Pow(x, 5) + Math.Pow(y, 5) + Math.Pow(z, 5) + Math.Pow(q, 5) == Math.Pow(w, 5))
-                            {
-                                Console.WriteLine($"x = {x}, y = {y}, z = {z}, q = {q}, w = {w}");
-                                break;
-                            }
+                            Console.WriteLine($"x = {x}, y = {y}, z = {z}, q = {q}, w = {w}");
+                            break;
                         }
+                        
                     }
                 }
             }
@@ -34,4 +33,6 @@ void XyzqwPow5(int from, int to)
 }
 
 
-XyzqwPow5(1, 200);
+XyzqwPow5(133, 200);
+
+
