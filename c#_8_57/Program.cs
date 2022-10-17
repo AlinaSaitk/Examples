@@ -30,48 +30,72 @@ void Print2DArray(int[,] array)
 
 void WriteElementsAmount(int[,] array)
 {
-    int[,] result = new int[array.GetLength(0)*array.GetLength(1), 2];
-    int k = 0;
-    for (int i = 0; i < array.GetLength(0); i++)
+    int min = 0;
+    int max = 10;
+    for (int m = min; m < max; m++)
     {
-        for (int j = 0; j < array.GetLength(1); j++)
-        {         
-            result[k, 0] = array[i, j];
-            result[k, 1] = 1;
-            k++; 
-        }
-    }
-    
-    int temp;
-    for (int l = 0; l < result.GetLength(0); l++)
-    {
-        for (int t = 1; t < result.GetLength(0); t++)
+        int sum = 0;
+        for (int i = 0; i < array.GetLength(0); i++)
         {
-            if (result[t, 0] < result[t-1, 0])
+            for (int j = 0; j < array.GetLength(1); j++)
             {
-                temp = result[t, 0];
-                result[t, 0] = result[t-1, 0];
-                result[t-1, 0] = temp;
+                if (array[i, j] == m)
+                {
+                    sum++;
+                }
             }
         }
-    }
-
-    for (int m = 0; m < result.GetLength(0); m++)
-    {
-        for (int n = m + 1; n < result.GetLength(0); n++)
+        if (sum != 0)
         {
-            if (result[m, 0] == result[n, 0])
-            {
-                result[m, 1] = result[m, 1] + result[n, 1];
-                result[n, 1] = 0;
-            }
-        }
-        if (result[m, 1] != 0)
-        {
-            Console.WriteLine($"{result[m, 0]} встречается {result[m, 1]} раз(а)");
+            Console.WriteLine($"{m} встречается {sum} раз(а)");
         }
     }
 }
+
+// void WriteElementsAmount(int[,] array)
+// {
+//     int[,] result = new int[array.GetLength(0)*array.GetLength(1), 2];
+//     int k = 0;
+//     for (int i = 0; i < array.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < array.GetLength(1); j++)
+//         {         
+//             result[k, 0] = array[i, j];
+//             result[k, 1] = 1;
+//             k++; 
+//         }
+//     }
+    
+//     int temp;
+//     for (int l = 0; l < result.GetLength(0); l++)
+//     {
+//         for (int t = 1; t < result.GetLength(0); t++)
+//         {
+//             if (result[t, 0] < result[t-1, 0])
+//             {
+//                 temp = result[t, 0];
+//                 result[t, 0] = result[t-1, 0];
+//                 result[t-1, 0] = temp;
+//             }
+//         }
+//     }
+
+//     for (int m = 0; m < result.GetLength(0); m++)
+//     {
+//         for (int n = m + 1; n < result.GetLength(0); n++)
+//         {
+//             if (result[m, 0] == result[n, 0])
+//             {
+//                 result[m, 1] = result[m, 1] + result[n, 1];
+//                 result[n, 1] = 0;
+//             }
+//         }
+//         if (result[m, 1] != 0)
+//         {
+//             Console.WriteLine($"{result[m, 0]} встречается {result[m, 1]} раз(а)");
+//         }
+//     }
+// }
 
 int[,] arr =CreateRandom2DArray(3, 4);
 Print2DArray(arr);
