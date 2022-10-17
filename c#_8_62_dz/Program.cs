@@ -7,47 +7,39 @@
 
 int[,] SpiralArray(int row, int col)
 {
-    int n = 1;
+    int n = 2;
     int[,] array = new int[row, col];
     int i = 0;
     int j = 0;
     int x = 0;
+    array[0, 0] = 1;
     while (n <= row * col)
     {
-        while(j < col-x)
+        while(j < col-1-x)
         {
-            array[i, j] = n;
+            array[i, j+1] = n;
             n++;
             j++;
         }
-        i++;
-        j--;
-        while (i < row-x)
+        while (i < row-1-x)
         {
-            
-            array[i, j] = n;
+            array[i+1, j] = n;
             n++;
             i++;
         }
-        i--;
-        j--;
-        while(j >= 0+x)
+        while(j > 0+x)
         {
-            array[i, j] = n;
+            array[i, j-1] = n;
             n++;
             j--;
         }
         x++;
-        i--;
-        j++;
-        while (i >= 0+x)
+        while (i > 0+x)
         {
-            array[i, j] = n;
+            array[i-1, j] = n;
             n++;
             i--;
         }
-        i++;
-        j++;
     }
     return array;
 }
@@ -65,5 +57,54 @@ void Print2DArray(int[,] array)
     } 
 }
 
-int[,] spiral = SpiralArray(4, 6);
+int[,] spiral = SpiralArray(6, 6);
 Print2DArray(spiral);
+
+
+
+// int[,] SpiralArray(int row, int col)
+// {
+//     int n = 1;
+//     int[,] array = new int[row, col];
+//     int i = 0;
+//     int j = 0;
+//     int x = 0;
+//     while (n <= row * col)
+//     {
+//         while(j < col-x)
+//         {
+//             array[i, j] = n;
+//             n++;
+//             j++;
+//         }
+//         i++;
+//         j--;
+//         while (i < row-x)
+//         {
+            
+//             array[i, j] = n;
+//             n++;
+//             i++;
+//         }
+//         i--;
+//         j--;
+//         while(j >= 0+x)
+//         {
+//             array[i, j] = n;
+//             n++;
+//             j--;
+//         }
+//         x++;
+//         i--;
+//         j++;
+//         while (i >= 0+x)
+//         {
+//             array[i, j] = n;
+//             n++;
+//             i--;
+//         }
+//         i++;
+//         j++;
+//     }
+//     return array;
+// }
