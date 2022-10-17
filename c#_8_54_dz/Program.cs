@@ -1,4 +1,4 @@
-﻿// ДЗ - Задача 54: Задайте двумерный массив. Напишите программу, которая упорядочит по убыванию элементы каждой строки двумерного массива.
+// ДЗ - Задача 54: Задайте двумерный массив. Напишите программу, которая упорядочит по убыванию элементы каждой строки двумерного массива.
 // Например, задан массив:
 // 1 4 7 2
 // 5 9 2 3
@@ -10,6 +10,30 @@
 
 
 
+int[,] SortRowArray(int[,] array)
+{
+    int temp = 0;
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1)-1; j++)
+        {
+            if (array[i, j] < array[i, j+1])
+            {
+                temp = array[i, j];
+                array[i, j] = array[i, j+1];
+                array[i, j+1] = temp;
+            }
+        }
+        Console.WriteLine();
+    }
+    return array; 
+}
+
+int[,] arr = CreateRandom2DArray();
+Print2DArray(arr);
+Console.WriteLine();
+int[,] arr2 = SortRowArray(arr);
+Print2DArray(arr2);
 
 
 // ДЗ - Задача 56: Задайте прямоугольный двумерный массив. Напишите программу, которая будет находить строку с наименьшей суммой элементов.
