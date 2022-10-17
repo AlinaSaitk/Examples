@@ -7,7 +7,48 @@
 
 int[,] SpiralArray(int row, int col)
 {
+    int n = 1;
     int[,] array = new int[row, col];
+    int i = 0;
+    int j = 0;
+    int x = 0;
+    while (n <= row * col)
+    {
+        while(j < col-x)
+        {
+            array[i, j] = n;
+            n++;
+            j++;
+        }
+        i++;
+        j--;
+        while (i < row-x)
+        {
+            
+            array[i, j] = n;
+            n++;
+            i++;
+        }
+        i--;
+        j--;
+        while(j >= 0+x)
+        {
+            array[i, j] = n;
+            n++;
+            j--;
+        }
+        x++;
+        i--;
+        j++;
+        while (i >= 0+x)
+        {
+            array[i, j] = n;
+            n++;
+            i--;
+        }
+        i++;
+        j++;
+    }
     return array;
 }
 
@@ -17,11 +58,12 @@ void Print2DArray(int[,] array)
     {
         for (int j = 0; j < array.GetLength(1); j++)
         {
-            Console.Write($"{array[i, j]} ");
+            if (array[i, j] < 10) Console.Write($"0{array[i, j]} ");
+            else Console.Write($"{array[i, j]} ");
         }
         Console.WriteLine();
     } 
 }
 
-int[,] spiral = SpiralArray(3, 4);
+int[,] spiral = SpiralArray(4, 6);
 Print2DArray(spiral);
